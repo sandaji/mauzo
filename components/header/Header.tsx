@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import React from 'react'
-import Menu from './Menu'
-import { SearchBox } from './SearchBox'
+import Link from "next/link";
+import React from "react";
+import Menu from "./Menu";
+import { SearchBox } from "./SearchBox";
 
 const Header = () => {
   return (
@@ -25,7 +25,7 @@ const Header = () => {
               </svg>
             </label>
             <Link href="/" className="btn btn-ghost text-lg">
-              Next Amazona V2
+              Mauzo
             </Link>
           </div>
 
@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

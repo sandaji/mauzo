@@ -158,7 +158,7 @@ export default function OrderDetails({
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Items</div>
-                    <div>${itemsPrice}</div>
+                    <div>KSH {itemsPrice}</div>
                   </div>
                 </li>
                 <li>
@@ -170,7 +170,7 @@ export default function OrderDetails({
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>KSH {shippingPrice}</div>
                   </div>
                 </li>
                 <li>

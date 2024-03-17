@@ -10,7 +10,7 @@
 | Authentication | Auth.js, Google Auth                                   |
 | Others         | Cloudinary, Zustand, SWR                               |
 
-![next amazona v2](/public/app.jpg)
+![Mauzo](/public/app.jpg)
 
 ## Resources
 
