@@ -1,4 +1,5 @@
 "use client";
+import Loading from "@/components/loading/Loading";
 import { Product } from "@/lib/models/ProductModel";
 import { formatId } from "@/lib/utils";
 import Link from "next/link";
