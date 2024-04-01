@@ -1,8 +1,8 @@
-import { Product } from "@/lib/models/ProductModel";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { Rating } from "./Rating";
+import { Product } from '@/lib/models/ProductModel'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import { Rating } from './Rating'
 
 export default function ProductItem({ product }: { product: Product }) {
   return (
@@ -28,6 +28,7 @@ export default function ProductItem({ product }: { product: Product }) {
           <span className="text-2xl">KSH {product.price}</span>
         </div>
       </div>
+
     </div>
-  );
+  )
 }

@@ -7,6 +7,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import useSWR from "swr";
 import useSWRMutation from "swr/mutation";
+import Loading from "@/components/loading/Loading";
 
 export default function OrderDetails({
   orderId,
@@ -61,7 +62,7 @@ export default function OrderDetails({
   const { data, error } = useSWR(`/api/orders/${orderId}`);
 
   if (error) return error.message;
-  if (!data) return "Loading...";
+  if (!data) return <Loading />;
 
   const {
     paymentMethod,
@@ -199,9 +200,7 @@ export default function OrderDetails({
                       onClick={() => deliverOrder()}
                       disabled={isDelivering}
                     >
-                      {isDelivering && (
-                        <span className="loading loading-spinner"></span>
-                      )}
+                      {isDelivering && <Loading />}
                       Mark as delivered
                     </button>
                   </li>

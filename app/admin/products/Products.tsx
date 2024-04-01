@@ -51,7 +51,7 @@ export default function Products() {
   );
 
   if (error) return "An error has occurred.";
-  if (!products) return "Loading...";
+  if (!products) return <Loading />;
 
   return (
     <div>

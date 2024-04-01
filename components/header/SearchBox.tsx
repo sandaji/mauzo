@@ -1,6 +1,7 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
 import useSWR from 'swr'
+import Loading from '../loading/Loading'
 
 export const SearchBox = () => {
   const searchParams = useSearchParams()
@@ -10,7 +11,7 @@ export const SearchBox = () => {
   const { data: categories, error } = useSWR('/api/products/categories')
 
   if (error) return error.message
-  if (!categories) return 'Loading...'
+  if (!categories) return <Loading  />
 
   return (
     <form action="/search" method="GET">

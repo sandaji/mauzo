@@ -48,7 +48,7 @@ export default async function ProductDetails({
             }}
           ></Image>
         </div>
-        <div>
+        <div className="">
           <ul className="space-y-4">
             <li>
               <h1 className="text-xl">{product.name}</h1>
@@ -64,7 +64,8 @@ export default async function ProductDetails({
               <div className="divider"></div>
             </li>
             <li>
-              Description: <p>{product.description}</p>
+              <span className="font-bold ">Description:</span>{" "}
+              <p>{product.description}</p>
             </li>
           </ul>
         </div>
@@ -94,6 +95,25 @@ export default async function ProductDetails({
                 </div>
               )}
             </div>
+          </div>
+          <div className="bg-base-200 card p-2 shadow-xl mt-0 md:mt-3 space-y-4">
+            <h3 className="text-white mx-auto bg-base-400">REVIEWS</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
+              vitae quaerat molestiae, autem explicabo ipsa unde impedit, itaque
+              eum laborum nesciunt, accusantium nemo hic nobis suscipit maiores
+              doloremque! Cupiditate omnis atque dolor. Molestias voluptatem
+              tenetur illo obcaecati. Voluptatem eum provident placeat odio
+              nulla! Eveniet deserunt facilis voluptatum necessitatibus quidem,
+              expedita esse eos praesentium voluptatibus consequatur rerum
+              corporis animi reprehenderit nisi iure mollitia minus dolorum
+              obcaecati. Velit rerum facilis enim alias quas veniam eius amet
+              eos odio. Consectetur nisi exercitationem numquam sapiente et
+              temporibus aspernatur vitae hic error, nostrum nesciunt!e!
+              Cupiditate omnis atque dolor. Molestias voluptatem tenetur illo
+              obcaecati. Voluptatem eum provident placeat odio nulla! Eveniet
+              deserunt facilis voluptatum necessitatibus quidem, expedita esse
+            </p>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import Loading from '@/components/loading/Loading'
 import { Order } from '@/lib/models/OrderModel'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -18,7 +19,7 @@ export default function MyOrders() {
   if (!mounted) return <></>
 
   if (error) return 'An error has occurred.'
-  if (!orders) return 'Loading...'
+  if (!orders) return <Loading />;
 
   return (
     <div className="overflow-x-auto">

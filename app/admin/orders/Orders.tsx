@@ -1,4 +1,5 @@
 'use client'
+import Loading from '@/components/loading/Loading'
 import { Order } from '@/lib/models/OrderModel'
 import Link from 'next/link'
 import useSWR from 'swr'
@@ -6,7 +7,7 @@ import useSWR from 'swr'
 export default function Orders() {
   const { data: orders, error } = useSWR(`/api/admin/orders`)
   if (error) return 'An error has occurred.'
-  if (!orders) return 'Loading...'
+  if (!orders) return <Loading />;
 
   return (
     <div>
