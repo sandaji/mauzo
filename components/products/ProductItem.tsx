@@ -14,7 +14,7 @@ export default function ProductItem({ product }: { product: Product }) {
             alt={product.name}
             width={300}
             height={300}
-            className="object-cover h-64 w-full"
+            className="object-cover h-64 w-full pt-2"
           />
         </Link>
       </figure>
