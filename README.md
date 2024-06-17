@@ -10,12 +10,9 @@
 | Authentication | Auth.js, Google Auth                                   |
 | Others         | Cloudinary, Zustand, SWR                               |
 
-![Mauzo](/public/app.jpg)
-
 ## Resources
 
-
-- Demo Website :  https://mauzo.vercel.app/
+- Demo Website :  https://kopia.vercel.app/
 - Source Code   :  https://github.com/sandaji/mauzo
 
 ## What you will learn
@@ -29,14 +26,13 @@
 - PayPal developer api to make online payment
 - Deploy web applications on servers like Vercel and Netlify
 
-
 ## Run Locally
 
 1. Clone repo
 
    ```shell
-    $ git clone git@github.com:basir/next-amazona-v2.git
-    $ cd next-amazona-v2
+    $ git clone git@github.com:sandaji/mauzo.git
+    $ cd mauzo
    ```
 
 2. Create .env File
@@ -47,7 +43,7 @@
 
    - Local MongoDB
      - Install it from [here](https://www.mongodb.com/try/download/community)
-     - In .env file update MONGODB_URI=mongodb://localhost/amazona
+     - In .env file update MONGODB_URI=mongodb://localhost/mauzo
    - OR Atlas Cloud MongoDB
      - Create database at [https://cloud.mongodb.com](https://cloud.mongodb.com)
      - In .env file update MONGODB_URI=mongodb+srv://your-db-connection
@@ -68,4 +64,3 @@
 
    - Run http://localhost:3000/signin
    - Enter admin email "admin@example.com" and password "123456" and click Signin
-

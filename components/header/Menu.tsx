@@ -5,8 +5,9 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { SearchBox } from './SearchBox'
-import { LiaShoppingBagSolid } from 'react-icons/lia'
-import { GoSun } from 'react-icons/go'
+import { GiShoppingCart } from "react-icons/gi";
+import { IoSunnyOutline } from "react-icons/io5";
+import { RxMoon } from "react-icons/rx";
 import { GiMoon } from 'react-icons/gi'
 
 const Menu = () => {
@@ -38,7 +39,7 @@ const Menu = () => {
         <ul className="flex items-stretch">
           <i>
             {mounted && (
-              <label className="swap swap-rotate">
+              <label className="swap swap-rotate  py-3 pr-3">
                 {/* this hidden checkbox controls the state */}
                 <input
                   type="checkbox"
@@ -47,16 +48,16 @@ const Menu = () => {
                 />
 
                 {/* sun icon */}
-                <GoSun className="swap-on fill-current w-10 h-10" />
+                <IoSunnyOutline className="swap-on fill-current text-xl/8" />
 
                 {/* moon icon */}
-                <GiMoon className="swap-off fill-current w-10 h-10" />
+                <RxMoon className="swap-off fill-current text-xl/8" />
               </label>
             )}
           </i>
           <li>
             <Link className="btn btn-ghost rounded-btn" href="/cart">
-              <LiaShoppingBagSolid className="swap-off fill-current w-10 h-10" />
+              <GiShoppingCart className="swap-off fill-current text-xl/8" />
               {mounted && items.length != 0 && (
                 <div className="badge badge-secondary">
                   {items.reduce((a, c) => a + c.qty, 0)}{" "}
@@ -70,20 +71,6 @@ const Menu = () => {
                 <div className="dropdown dropdown-bottom dropdown-end">
                   <label tabIndex={0} className="btn btn-ghost rounded-btn">
                     {session.user.name}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6 "
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                      />
-                    </svg>
                   </label>
                   <ul
                     tabIndex={0}
@@ -91,7 +78,7 @@ const Menu = () => {
                   >
                     {session.user.isAdmin && (
                       <li onClick={handleClick}>
-                        <Link href="/admin/dashboard">Admin Dashboard</Link>
+                        <Link href="/admin/dashboard">Dashboard</Link>
                       </li>
                     )}
 

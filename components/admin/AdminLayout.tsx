@@ -1,23 +1,25 @@
-import { auth } from '@/lib/auth'
-import Link from 'next/link'
+import { auth } from "@/lib/auth";
+import Link from "next/link";
+import { TfiDashboard } from "react-icons/tfi";
+import { IoPeopleOutline } from "react-icons/io5";
 
 const AdminLayout = async ({
-  activeItem = 'dashboard',
+  activeItem = "dashboard",
   children,
 }: {
-  activeItem: string
-  children: React.ReactNode
+  activeItem: string;
+  children: React.ReactNode;
 }) => {
-  const session = await auth()
+  const session = await auth();
   if (!session || !session.user.isAdmin) {
     return (
       <div className="relative flex flex-grow p-4">
         <div>
-          <h1 className="text-2xl">Unauthorized</h1>
+          <h1 className="text-2xl bg-red-300">Unauthorized</h1>
           <p>Admin permission required</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -27,42 +29,74 @@ const AdminLayout = async ({
           <ul className="menu">
             <li>
               <Link
-                className={'dashboard' === activeItem ? 'active' : ''}
+                className={"dashboard  grid" === activeItem ? "active" : ""}
                 href="/admin/dashboard"
               >
-                Dashboard
+                <div className="gap-2 text-[#e3e5e9] text-[14px] leading-5 flex items-center w-[120px]">
+                  <TfiDashboard />
+                  <span>Dashboard</span>
+                </div>
               </Link>
             </li>
-            <li>
-              <Link
-                className={'orders' === activeItem ? 'active' : ''}
-                href="/admin/orders"
-              >
-                Orders
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={'products' === activeItem ? 'active' : ''}
-                href="/admin/products"
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={'users' === activeItem ? 'active' : ''}
-                href="/admin/users"
-              >
-                Users
-              </Link>
-            </li>
+          </ul>
+
+          <div className="ms-5">
+            <h3 className="relative">Ecommerce functions</h3>
+          </div>
+          <ul className="menu flex flex-col grow h-[90vh] ">
+            <div>
+              <li>
+                <Link
+                  className={"orders grid" === activeItem ? "active" : ""}
+                  href="/admin/orders"
+                >
+                  <div className="gap-2 text-[#e3e5e9] text-[14px] leading-5 flex items-center w-[120px]">
+                    <TfiDashboard />
+                    <span>Orders</span>
+                  </div>
+                </Link>
+                <Link
+                  className={"orders grid" === activeItem ? "active" : ""}
+                  href="/admin/orders"
+                >
+                  <div className="gap-2 text-[#e3e5e9] text-[14px] leading-5 flex items-center w-[120px]">
+                    <TfiDashboard />
+                    <span>Order Details</span>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={"products" === activeItem ? "active" : ""}
+                  href="/admin/products"
+                >
+                  <div className="gap-2 text-[#e3e5e9] text-[14px] leading-5 flex items-center w-[120px]">
+                    <TfiDashboard />
+                    <span>Products</span>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={"users" === activeItem ? "active" : ""}
+                  href="/admin/users"
+                >
+                  <div className="gap-2 text-[#e3e5e9] text-[14px] leading-5 flex items-center w-[120px]">
+                    <IoPeopleOutline />
+                    <span>Users</span>
+                  </div>
+                </Link>
+              </li>
+            </div>
+            <div>
+              <h3>iv</h3>
+            </div>
           </ul>
         </div>
         <div className="md:col-span-4 px-4">{children} </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;

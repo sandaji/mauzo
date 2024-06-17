@@ -2,6 +2,8 @@
 import { useSearchParams } from 'next/navigation'
 import useSWR from 'swr'
 import Loading from '../loading/Loading'
+import { LuSearch } from "react-icons/lu";
+
 
 export const SearchBox = () => {
   const searchParams = useSearchParams()
@@ -19,22 +21,24 @@ export const SearchBox = () => {
         <select
           name="category"
           defaultValue={category}
-          className="join-item select select-bordered "
+          className="join-item select select-bordered rounded"
         >
           <option value="all">All</option>
           {categories.map((c: string) => (
             <option key={c}>{c}</option>
           ))}
         </select>
-        
+
         <input
           className="join-item input input-bordered  w-48"
           placeholder="Search..."
           defaultValue={q}
           name="q"
         />
-        <button className="join-item btn">Search</button>
+        <button className="join-item btn">
+          <LuSearch /> 
+        </button>
       </div>
     </form>
-  )
+  );
 }
