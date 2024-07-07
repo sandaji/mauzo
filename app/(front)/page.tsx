@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_APP_NAME || "Mauzo",
+  title: process.env.NEXT_PUBLIC_APP_NAME || "KOPIA",
   description:
     process.env.NEXT_PUBLIC_APP_DESC ||
     "Nextjs, Server components, Next auth, daisyui, zustand",

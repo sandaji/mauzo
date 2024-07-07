@@ -8,7 +8,6 @@ import { SearchBox } from './SearchBox'
 import { GiShoppingCart } from "react-icons/gi";
 import { IoSunnyOutline } from "react-icons/io5";
 import { RxMoon } from "react-icons/rx";
-import { GiMoon } from 'react-icons/gi'
 
 const Menu = () => {
   const { items, init } = useCartService()

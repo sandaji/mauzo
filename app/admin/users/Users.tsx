@@ -60,7 +60,7 @@ export default function Users() {
                   <Link
                     href={`/admin/users/${user._id}`}
                     type="button"
-                    className="btn btn-ghost btn-sm"
+                    className="btn btn-ghost btn-sm bg-green-700 hover:bg-green-600"
                   >
                     Edit
                   </Link>
@@ -68,7 +68,7 @@ export default function Users() {
                   <button
                     onClick={() => deleteUser({ userId: user._id })}
                     type="button"
-                    className="btn btn-ghost btn-sm"
+                    className="btn btn-ghost btn-sm bg-red-700 hover:bg-red-600 "
                   >
                     Delete
                   </button>

@@ -14,7 +14,7 @@ const Header = () => {
                 className="inline-block w-5 h-5 stroke-current"/>     
             </label>
             <Link href="/" className="btn btn-ghost text-lg">
-              Mauzo
+              Kopia
             </Link>
           </div>
 

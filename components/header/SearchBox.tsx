@@ -13,7 +13,7 @@ export const SearchBox = () => {
   const { data: categories, error } = useSWR('/api/products/categories')
 
   if (error) return error.message
-  if (!categories) return <Loading  />
+  if (!categories) return <Loading />; 
 
   return (
     <form action="/search" method="GET">

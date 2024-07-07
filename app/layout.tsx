@@ -6,6 +6,7 @@ import DrawerButton from "@/components/DrawerButton";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import "flatpickr/dist/themes/material_blue.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

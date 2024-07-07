@@ -94,7 +94,7 @@ export default function Products() {
                   <Link
                     href={`/admin/products/${product._id}`}
                     type="button"
-                    className="btn btn-ghost btn-sm"
+                    className="btn btn-ghost btn-sm bg-green-700 hover:bg-green-600"
                   >
                     Edit
                   </Link>
@@ -102,7 +102,7 @@ export default function Products() {
                   <button
                     onClick={() => deleteProduct({ productId: product._id! })}
                     type="button"
-                    className="btn btn-ghost btn-sm"
+                    className="btn btn-ghost btn-sm bg-red-700 hover:bg-red-600"
                   >
                     Delete
                   </button>
