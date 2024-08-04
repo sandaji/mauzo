@@ -6,16 +6,16 @@ import Link from 'next/link'
 const sortOrders = ['newest', 'lowest', 'highest', 'rating']
 const prices = [
   {
-    name: '$1 to $50',
-    value: '1-50',
+    name: 'KSH 1 to KSH 5000',
+    value: '1-5000',
   },
   {
-    name: '$51 to $200',
-    value: '51-200',
+    name: 'KSH 5001 to KSH 20000',
+    value: '5001-20000',
   },
   {
-    name: '$201 to $1000',
-    value: '201-1000',
+    name: 'KSH 20001 to KSH 10000000',
+    value: '20001-10000000',
   },
 ]
 
@@ -104,7 +104,7 @@ export default async function SearchPage({
   return (
     <div className="grid md:grid-cols-5 md:gap-5">
       <div>
-        <div className="text-xl pt-3">Department</div>
+        <div className="text-xl pt-3">Categories</div>
         <div>
           <ul>
             <li>

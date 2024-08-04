@@ -96,7 +96,73 @@ const AdminLayout: React.FC<AdminLayoutProps> = async ({
                 </Link>
               </li>
 
-              <li className="space-x-2 rounded">
+              <li className="space-x-2 rounded my-1">
+                <Link
+                  href="/admin/users"
+                  className={`grid users ${
+                    activeItem === "users" ? "active font-bold" : ""
+                  }`}
+                >
+                  <div className="text-[#e3e5e9] text-lg leading-5 flex items-center w-[120px] gap-3">
+                    <FaRegUser className="text-violet-500" />
+                    <span
+                      className={` users ${
+                        activeItem === "users"
+                          ? "active font-bold text-yellow-400"
+                          : ""
+                      }`}
+                    >
+                      Users
+                    </span>
+                  </div>
+                </Link>
+              </li>
+
+              <li className="space-x-2 rounded my-1">
+                <Link
+                  href="/admin/users"
+                  className={`grid users ${
+                    activeItem === "users" ? "active font-bold" : ""
+                  }`}
+                >
+                  <div className="text-[#e3e5e9] text-lg leading-5 flex items-center w-[120px] gap-3">
+                    <FaRegUser className="text-violet-500" />
+                    <span
+                      className={` users ${
+                        activeItem === "users"
+                          ? "active font-bold text-yellow-400"
+                          : ""
+                      }`}
+                    >
+                      Users
+                    </span>
+                  </div>
+                </Link>
+              </li>
+
+              <li className="space-x-2 rounded my-1">
+                <Link
+                  href="/admin/users"
+                  className={`grid users ${
+                    activeItem === "users" ? "active font-bold" : ""
+                  }`}
+                >
+                  <div className="text-[#e3e5e9] text-lg leading-5 flex items-center w-[120px] gap-3">
+                    <FaRegUser className="text-violet-500" />
+                    <span
+                      className={` users ${
+                        activeItem === "users"
+                          ? "active font-bold text-yellow-400"
+                          : ""
+                      }`}
+                    >
+                      Users
+                    </span>
+                  </div>
+                </Link>
+              </li>
+
+              <li className="space-x-2 rounded my-1">
                 <Link
                   href="/admin/users"
                   className={`grid users ${
