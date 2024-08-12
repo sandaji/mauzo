@@ -6,7 +6,7 @@ const HeroSection: React.FC = () => {
     <div className="relative h-[80vh] bg">
       <div className="flex justify-between items-center h-full px-10 border-orange-500">
         <div className="flex flex-col justify-center border-fuchsia-700 w-1/2 h-96">
-          <h2 className="text-3xl font-bold text-gray-800">
+          <h2 className="text-3xl font-bold text-gray-100">
             The best notebook <br /> collection 2024
           </h2>
           <p className="mt-2 text-lg">
