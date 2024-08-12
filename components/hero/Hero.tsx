@@ -23,7 +23,6 @@ const HeroSection: React.FC = () => {
             alt="Hero"
             width={500}
             height={500}
-            layout="responsive"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
@@ -37,7 +36,6 @@ const HeroSection: React.FC = () => {
               alt="Free Delivery"
               width={50}
               height={50}
-              layout="fixed"
             />
             <div className="flex flex-col text-left ml-4 ">
               <h4 className="font-bold mt-1">Free Delivery</h4>
@@ -50,7 +48,6 @@ const HeroSection: React.FC = () => {
               alt="Return & Refund"
               width={50}
               height={50}
-              layout="fixed"
             />
             <p className="text-sm mt-1">Return & Refund</p>
           </div>
@@ -60,7 +57,6 @@ const HeroSection: React.FC = () => {
               alt="Member Discount"
               width={50}
               height={50}
-              layout="fixed"
             />
             <p className="text-sm mt-1">Member Discount</p>
           </div>
@@ -70,7 +66,6 @@ const HeroSection: React.FC = () => {
               alt="Support 24/7"
               width={50}
               height={50}
-              layout="fixed"
             />
             <p className="text-sm mt-1">Support 24/7</p>
           </div>
