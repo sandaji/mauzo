@@ -1,56 +1,50 @@
-// pages/api/reviews.ts
-import { getSession } from "next-auth/react";
+import { auth } from "@/lib/auth";
 import dbConnect from "@/lib/dbConnect";
 import ReviewModel from "@/lib/models/ReviewModel";
 import OrderModel from "@/lib/models/OrderModel";
-import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const session = await getSession({ req });
-
-  if (!session || !session.user) {
-    return res.status(401).json({ message: "Unauthorized" });
+export const POST = auth(async (req: any) => {
+  if (!req.auth) {
+    return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  await dbConnect();
-
-  if (req.method === "POST") {
-    const { product, rating, review } = req.body;
+  try {
+    await dbConnect();
+    const { product, rating, review } = await req.json();
+    const userId = req.auth.user._id;
 
     // Check if user has purchased the product
     const hasPurchased = await OrderModel.findOne({
-      user: session.user.id,
+      user: userId,
       "items.product": product,
       isPaid: true,
     });
 
     if (!hasPurchased) {
-      return res
-        .status(400)
-        .json({
+      return Response.json(
+        {
           message: "You need to purchase the product before leaving a review.",
-        });
+        },
+        { status: 400 },
+      );
     }
 
     const newReview = new ReviewModel({
-      user: session.user.id,
+      user: userId,
       product,
       rating,
       review,
     });
 
-    try {
-      await newReview.save();
-      return res
-        .status(201)
-        .json({ message: "Review submitted successfully", review: newReview });
-    } catch (err: any) {
-      return res.status(500).json({ message: err.message });
-    }
+    await newReview.save();
+    return Response.json(
+      { message: "Review submitted successfully", review: newReview },
+      { status: 201 },
+    );
+  } catch (err: any) {
+    return Response.json(
+      { message: err.message || "Internal Server Error" },
+      { status: 500 },
+    );
   }
-
-  return res.status(405).json({ message: "Method Not Allowed" });
-}
+}) as any;
