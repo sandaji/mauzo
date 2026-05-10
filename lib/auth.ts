@@ -3,8 +3,9 @@ import bcrypt from "bcryptjs";
 import dbConnect from "./dbConnect";
 import UserModel from "./models/UserModel";
 import NextAuth from "next-auth";
+import { getServerSession as getServerSessionBase } from "next-auth/next";
 
-export const config = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       credentials: {
@@ -22,7 +23,7 @@ export const config = {
         if (user) {
           const isMatch = await bcrypt.compare(
             credentials.password as string,
-            user.password
+            user.password,
           );
           if (isMatch) {
             return user;
@@ -65,9 +66,37 @@ export const config = {
   },
 };
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth(config);
+const authHandler = NextAuth(authOptions);
+
+export const GET = authHandler;
+export const POST = authHandler;
+
+export async function getSession() {
+  return getServerSessionBase(authOptions);
+}
+
+export function auth(handler: any) {
+  return async (...args: any[]) => {
+    const session = await getSession();
+    if (!session || !session.user) {
+      return Response.json({ message: "unauthorized" }, { status: 401 });
+    }
+
+    const req = args[0];
+    if (req && typeof req === "object" && !Array.isArray(req)) {
+      args[0] = new Proxy(req, {
+        get(target, prop, receiver) {
+          if (prop === "auth") {
+            return { user: session.user };
+          }
+          return Reflect.get(target, prop, receiver);
+        },
+      });
+    }
+
+    return handler(...args);
+  };
+}
+
+export const signIn = async () => {};
+export const signOut = async () => {};

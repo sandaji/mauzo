@@ -1,5 +1,5 @@
 // components/AdminLayout.tsx
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth";
 import Link from "next/link";
 import { MdBorderColor } from "react-icons/md";
 import { AiOutlineProduct } from "react-icons/ai";
@@ -16,7 +16,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = async ({
   activeItem = "dashboard",
   children,
 }) => {
-  const session = await auth();
+  const session = await getSession();
 
   if (!session || !session.user.isAdmin) {
     return (

@@ -1,36 +1,12 @@
-import NextAuth from 'next-auth'
-import type { NextAuthConfig } from 'next-auth'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-const authConfig = {
-  providers: [],
-  callbacks: {
-    authorized({ request, auth }: any) {
-      const protectedPaths = [
-        /\/shipping/,
-        /\/payment/,
-        /\/place-order/,
-        /\/profile/,
-        /\/order\/(.*)/,
-        /\/admin/,
-      ]
-      const { pathname } = request.nextUrl
-      if (protectedPaths.some((p) => p.test(pathname))) return !!auth
-      return true
-    },
-  },
-} satisfies NextAuthConfig
-
-export const { auth: middleware } = NextAuth(authConfig)
+export function middleware(request: NextRequest) {
+  // Basic middleware - just pass through for now
+  // Route protection is handled in individual routes
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
-}
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+};

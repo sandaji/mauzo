@@ -15,11 +15,25 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const featuredProducts = await productService.getFeatured();
-  const latestProducts = await productService.getLatest();
+  let featuredProducts = [];
+  let latestProducts = [];
+  let dbError = "";
+
+  try {
+    featuredProducts = await productService.getFeatured();
+    latestProducts = await productService.getLatest();
+  } catch (error: any) {
+    dbError = error?.message || "Unable to load products.";
+  }
+
   return (
     <>
       <HeroSection />
+      {dbError && (
+        <div className="alert alert-warning my-4">
+          <span>{dbError}</span>
+        </div>
+      )}
       <h2 className="text-2xl py-2">Featured Products</h2>
       <div className="w-full carousel rounded-box mt-4 grid grid-cols-3 gap-4">
         {featuredProducts.map((product, index) => (
